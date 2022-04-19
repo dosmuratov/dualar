@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'info.dart' as dua;
+import 'player.dart';
 
 void main() {
   runApp(const MyApp());
@@ -39,15 +40,18 @@ class Card extends StatelessWidget {
         ),
         borderRadius: const BorderRadius.all(Radius.circular(5)),
       ),
-      child: Column(children: [
-        Text(
-          dua.kuranDualar.entries.first.value.elementAt(1),
-          style: const TextStyle(fontSize: 20),
-        ),
-        Text(
-          dua.kuranDualar.entries.first.value.elementAt(0),
-        ),
-      ]),
+      child: Column(
+        children: [
+          Text(
+            dua.kuranDualar.entries.first.value.elementAt(1),
+            style: const TextStyle(fontSize: 20),
+          ),
+          Text(
+            dua.kuranDualar.entries.first.value.elementAt(0),
+          ),
+          const Player(),
+        ],
+      ),
     );
   }
 }
