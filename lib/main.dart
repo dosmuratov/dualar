@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'info.dart' as dua;
 import 'player.dart';
+import 'package:screenshot/screenshot.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,6 +27,8 @@ class MyApp extends StatelessWidget {
   }
 }
 
+ScreenshotController screenshotController = ScreenshotController();
+
 class Card extends StatelessWidget {
   const Card({Key? key}) : super(key: key);
 
@@ -38,7 +41,7 @@ class Card extends StatelessWidget {
           width: 2,
           color: Colors.deepOrange,
         ),
-        borderRadius: const BorderRadius.all(Radius.circular(5)),
+        borderRadius: const BorderRadius.all(Radius.circular(15)),
       ),
       child: Column(
         children: [
@@ -49,7 +52,14 @@ class Card extends StatelessWidget {
           Text(
             dua.kuranDualar.entries.first.value.elementAt(0),
           ),
-          const Player(),
+          const Spacer(),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Player(),
+              IconButton(onPressed: () {}, icon: const Icon(Icons.share)),
+            ],
+          ),
         ],
       ),
     );

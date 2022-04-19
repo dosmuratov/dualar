@@ -25,14 +25,20 @@ class _PlayerState extends State<Player> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: ElevatedButton(
-        onPressed: () async {
-          await player.setAsset('assets/audios/7-23.mp3');
-          player.play();
-        },
-        child: const Text('1 - dua'),
-      ),
+    return Row(
+      children: [
+        IconButton(
+          onPressed: () async {
+            await player.setAsset('assets/audios/7-23.mp3');
+            player.play();
+          },
+          icon: const Icon(Icons.play_arrow_sharp),
+        ),
+        IconButton(
+          onPressed: player.pause,
+          icon: const Icon(Icons.pause_outlined),
+        ),
+      ],
     );
   }
 }
